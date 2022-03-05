@@ -11,9 +11,19 @@ import javax.persistence.TypedQuery;
 import model.User;
 
 /**
- * @author roman-rggeleta@dmacc.edu CIS175-Spring 2022 Feb 27, 2022
+ *@author roman-rggeleta@dmacc.edu
+ *CIS175-Spring 2022
+ *Mar 4, 2022
  */
-public class BookHelper {
+public class BookDetailsHelper {
+
+	/**
+	 * @param user
+	 */
+	public void insertNewListDetails(User user) {
+		// TODO Auto-generated method stub
+		
+	}
 	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("WebBookswithUsers");
 
 	public void insert(Book b) {
@@ -111,3 +121,6 @@ public class BookHelper {
 	}
 
 }
+
+
+
