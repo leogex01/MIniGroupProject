@@ -18,7 +18,6 @@ public class User {
 	@GeneratedValue
 	@Column(name = "USERSID")
 	private int userId;
-	@Column(name = "USERNAME")
 	private String userName;
  
 	
@@ -60,5 +59,11 @@ public class User {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName + "]";
+	}
+
 
 }
