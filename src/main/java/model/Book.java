@@ -17,10 +17,15 @@ public class Book {
 	@GeneratedValue
 	@Column(name = "ID")
 	private int id;
-	@Column(name = "BookTitle")
+	@Column(name = "BOOKTITLE")
 	private String bookTitle;
-	@Column(name = "Author")
+	@Column(name = "BOOKAUTHOR")
 	private String bookAuthor;
+
+	@Override
+	public String toString() {
+		return "Book [id=" + id + ", bookTitle=" + bookTitle + ", bookAuthor=" + bookAuthor + "]";
+	}
 
 	public Book() {
 		// TODO Auto-generated constructor stub
