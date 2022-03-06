@@ -5,6 +5,7 @@
 	    <class>model.User</class>
 	    <class>model.Book</class>
 	    <class>model.BookDetails</class>
+	    <class>controller.LocalDateAttributeConverter</class>
 	    <properties>
 	    	<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 	    </properties>

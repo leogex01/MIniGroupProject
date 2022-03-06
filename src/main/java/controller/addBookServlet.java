@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.print.Book;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.ListItem;
+
 
 /**
  * Servlet implementation class addBookServlet
@@ -39,12 +40,12 @@ public class addBookServlet extends HttpServlet {
 		// TODO Auto-generated method stub 
 		
 		// Need to update class servlet names once classes are in repo. 
-		String store =request.getParameter("store");
-		String item =request.getParameter("item");
+		String bookTitle =request.getParameter("bookTitle");
+		String bookAuthor =request.getParameter("bookAuthor");
 		
-		ListItem li = new ListItem(store,item);
-		ListItemHelper dao = new ListItemHelper();
-		dao.InsertItem(li);
+		Book b = new Book();
+		BookHelper dao = new BookHelper();
+		dao.insert(b);
 		
 		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 	}

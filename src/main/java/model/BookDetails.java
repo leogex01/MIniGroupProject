@@ -21,37 +21,39 @@ public class BookDetails {
 	@GeneratedValue
 	private int id;
 	private String listName;
-	private LocalDate tripDate;
+	private LocalDate publishedDate;
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	private User user;
 	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	private List<Book> listOfBooks;
+	
+	
 
 	public BookDetails() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public BookDetails(int id, String listName, LocalDate tripDate, User user, List<Book> listOfBooks) {
+	public BookDetails(int id, String listName, LocalDate publishedDate, User user, List<Book> listOfBooks) {
 		super();
 		this.id = id;
 		this.listName = listName;
-		this.tripDate = tripDate;
+		this.publishedDate = publishedDate;
 		this.user = user;
 		this.listOfBooks = listOfBooks;
 	}
 
-	public BookDetails(String listName, LocalDate tripDate, User user, List<Book> listOfBooks) {
+	public BookDetails(String listName, LocalDate publishedDate, User user, List<Book> listOfBooks) {
 		super();
 		this.listName = listName;
-		this.tripDate = tripDate;
+		this.publishedDate = publishedDate;
 		this.user = user;
 		this.listOfBooks = listOfBooks;
 	}
 
 	public BookDetails(LocalDate tripDate, User user, List<Book> listOfBooks) {
 		super();
-		this.tripDate = tripDate;
+		this.publishedDate = publishedDate;
 		this.user = user;
 		this.listOfBooks = listOfBooks;
 	}
@@ -72,12 +74,12 @@ public class BookDetails {
 		this.listName = listName;
 	}
 
-	public LocalDate getTripDate() {
-		return tripDate;
+	public LocalDate getPublishedDate() {
+		return publishedDate;
 	}
 
-	public void setTripDate(LocalDate tripDate) {
-		this.tripDate = tripDate;
+	public void setPublishedDate(LocalDate publishedDate) {
+		this.publishedDate = publishedDate;
 	}
 
 	public User getUser() {
@@ -98,7 +100,7 @@ public class BookDetails {
 
 	@Override
 	public String toString() {
-		return "BookDetails [id=" + id + ", listName=" + listName + ", tripDate=" + tripDate + ", user=" + user
+		return "BookDetails [id=" + id + ", listName=" + listName + ", localDate=" + publishedDate + ", user=" + user
 				+ ", listOfBooks=" + listOfBooks + "]";
 	}
 
