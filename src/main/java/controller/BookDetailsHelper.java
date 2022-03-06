@@ -34,6 +34,12 @@ public class BookDetailsHelper {
 		em.close();
 
 	}
+	
+	public List<Book> getLists() {
+		EntityManager em = emfactory.createEntityManager();
+		List<Book> allDetails = em.createQuery("SELECT d FROM ListDetails d").getResultList();
+		return allDetails;
+	}
 
 	public List<Book> showAllBooks() {
 		EntityManager em = emfactory.createEntityManager();
