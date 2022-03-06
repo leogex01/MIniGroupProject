@@ -41,7 +41,7 @@ public class NavigationServlet extends HttpServlet {
 		String act = request.getParameter("doThisToBookAuthor");
 		BookHelper dao = new BookHelper();
 
-		String path = "/viewAllItemsServlet";
+		String path = "/viewAllBooksServlet";
 
 		if (act.equals("delete")) {
 			try {
