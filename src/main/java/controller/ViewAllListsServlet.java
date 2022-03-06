@@ -44,7 +44,7 @@ public class ViewAllListsServlet extends HttpServlet {
 		}
 		getServletContext().getRequestDispatcher("/shopping-list-by-user.jsp").forward(request, response);
 		}
-	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
