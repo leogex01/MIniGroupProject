@@ -1,6 +1,6 @@
 package controller;
 
-import java.awt.print.Book;
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,7 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
-import model.User;
+import model.Book;
 
 /**
  * @author roman-rggeleta@dmacc.edu CIS175-Spring 2022 Feb 27, 2022
