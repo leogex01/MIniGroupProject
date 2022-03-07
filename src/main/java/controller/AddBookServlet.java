@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 /**
- * Servlet implementation class AddBookServlet
+ * Servlet implementation class addBookServlet
  */
 @WebServlet("/addBookServlet")
 public class AddBookServlet extends HttpServlet {
@@ -25,29 +25,23 @@ public class AddBookServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String bookTitle = request.getParameter("bookTitle");
-		String bookAuthor = request.getParameter("BookAuthor");
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	// TODO Auto-generated method stub 
+	
+		String bookTitle =request.getParameter("bookTitle");
+		String bookAuthor =request.getParameter("bookAuthor");
 		
-		System.out.println("Inside doPost");
+		
+		//Book b = new Book(bookTitle, bookAuthor);
 		Book b = new Book();
-		BookHelper bh = new BookHelper();
-		bh.insert(b);
+		BookHelper dao = new BookHelper();
+		dao.insert(b);
 		
 		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
-	
 	}
 
 }

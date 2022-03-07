@@ -15,11 +15,11 @@ import javax.persistence.Table;
 public class Book {
 	@Id
 	@GeneratedValue
-	@Column(name = "ID")
+	//@Column(name = "ID")
 	private int id;
-	@Column(name = "BOOKTITLE")
+	//@Column(name = "BOOKTITLE")
 	private String bookTitle;
-	@Column(name = "BOOKAUTHOR")
+	//@Column(name = "BOOKAUTHOR")
 	private String bookAuthor;
 
 	@Override
@@ -30,7 +30,11 @@ public class Book {
 	public Book() {
 		// TODO Auto-generated constructor stub
 	}
-
+	public Book(String bookTitle, String bookAuthor) {
+		super();
+		this.bookTitle = bookTitle;
+		this.bookAuthor = bookAuthor;
+	}
 	public Book(int id, String bookTitle, String bookAuthor) {
 		super();
 		this.id = id;
@@ -38,11 +42,6 @@ public class Book {
 		this.bookAuthor = bookAuthor;
 	}
 
-	public Book(String bookTitle, String bookAuthor) {
-		super();
-		this.bookTitle = bookTitle;
-		this.bookAuthor = bookAuthor;
-	}
 
 	public int getId() {
 		return id;

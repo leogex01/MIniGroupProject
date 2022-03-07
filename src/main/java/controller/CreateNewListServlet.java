@@ -36,14 +36,14 @@ public class CreateNewListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		BookHelper lih = new BookHelper();
+		BookHelper bh = new BookHelper();
 		String listName = request.getParameter("listName");
 		
 		String month = request.getParameter("month");
 		String day = request.getParameter("day");
 		String year = request.getParameter("year");
 
-		String shopperName = request.getParameter("userName");
+		String userName = request.getParameter("userName");
 
 		LocalDate ld;
 		try {
@@ -57,7 +57,7 @@ public class CreateNewListServlet extends HttpServlet {
 		
 		if(selectedBook != null && selectedBook.length > 0){
 			for(int i = 0; i<selectedBook.length; i++) {
-				Book b = lih.searchForBookAuthorById(Integer.parseInt(selectedBook[i]));
+				Book b = bh.searchForBookAuthorById(Integer.parseInt(selectedBook[i]));
 				selectedBooksInList.add(b);
 			}
 		}
