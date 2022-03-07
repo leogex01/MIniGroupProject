@@ -113,6 +113,8 @@ public class BookDetailsHelper {
 		em.close();
 		return foundBooks;
 	}
+	
+	
 
 	public void cleanUp() {
 		emfactory.close();

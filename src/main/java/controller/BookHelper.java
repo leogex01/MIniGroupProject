@@ -10,6 +10,7 @@ import javax.persistence.TypedQuery;
 
 import model.Book;
 
+
 /**
  * @author roman-rggeleta@dmacc.edu CIS175-Spring 2022 Feb 27, 2022
  */
@@ -69,6 +70,8 @@ public class BookHelper {
 		em.getTransaction().commit();
 		em.close();
 	}
+	
+	
 
 	public List<Book> searchForBooksByBookTitle(String bookTitle) {
 		// TODO Auto-generated method stub

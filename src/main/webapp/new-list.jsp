@@ -12,9 +12,9 @@
 		List Name: <input type="text" name="listName"><br /> Trip
 		Date: <input type="text" name="month" placeholder="mm" size="4">
 		<input type="text" name="day" placeholder="dd" size="4"> <input
-			type="text" name="year" placeholder="yyyy" size="4"> Shopper
+			type="text" name="year" placeholder="yyyy" size="4"> User
 		Name: <input type="text" name="userName"><br /> Available
-		Items:<br /> <select name="allBooksToAdd" multiple size="6">
+		Books:<br /> <select name="allBooksToAdd" multiple size="6">
 			<c:forEach items="${requestScope.allBooks}" var="currentauthor">
 				<option value="${currentauthor.id}">${currentauthor.bookTitle} |
 					${currentauthor.bookAuthor}</option>
