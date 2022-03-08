@@ -1,6 +1,6 @@
 package controller;
 
-import java.awt.print.Book;
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,7 +8,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
-import model.BookDetails;
+
+import model.Book;
+
+import model.ListDetails;
+
 import model.User;
 
 /**
@@ -35,6 +39,12 @@ public class BookDetailsHelper {
 		em.close();
 
 	}
+	
+	public List<Book> getLists() {
+		EntityManager em = emfactory.createEntityManager();
+		List<Book> allDetails = em.createQuery("SELECT d FROM ListDetails d").getResultList();
+		return allDetails;
+	}
 
 	public List<Book> showAllBooks() {
 		EntityManager em = emfactory.createEntityManager();
@@ -43,7 +53,7 @@ public class BookDetailsHelper {
 
 	}
 
-	public void delete(Book toDelete) {
+	public void delete(model.Book listToDelete) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		TypedQuery<Book> typedQuery = em.createQuery("select b from Book b where b.bookTitle = :selectedBookTitle",
@@ -61,7 +71,7 @@ public class BookDetailsHelper {
 		em.close();
 	}
 
-	public Book searchForBookAuthorById(int idToEdit) {
+	public model.Book searchForBookAuthorById(int idToEdit) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
@@ -108,17 +118,29 @@ public class BookDetailsHelper {
 		em.close();
 		return foundBooks;
 	}
-
-	public void cleanUp() {
-		emfactory.close();
-	}
-
 	/**
 	 * @param toDelete
 	 */
 	public void deleteBookTitle(Book toDelete) {
 		// TODO Auto-generated method stub
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		TypedQuery<Book> typedQuery = em.createQuery("select b from Book b where b.BookTitle = :selectedBookTitle",
+				Book.class);
+		// Substitute parameter with actual data from the toDelete item
+		typedQuery.setParameter("selectedId", toDelete.getId());
+		// we only want one result
+		typedQuery.setMaxResults(1);
+		// get the result and save it into a new list item
+		Book result = typedQuery.getSingleResult();
+		// remove it
+		em.remove(result);
+		em.getTransaction().commit();
+		em.close();
+			}
 		
+	public void cleanUp() {
+		emfactory.close();
 	}
 
 	/**
@@ -126,9 +148,23 @@ public class BookDetailsHelper {
 	 * @return
 	 */
 	public BookDetails searchForListDetailsById(Integer tempId) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
+
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		TypedQuery<Book> typedQuery = em.createQuery("select b from Book b where b.BookAuthor = :selectedBookAuthor",
+				Book.class);
+
+		typedQuery.setParameter("selectedBookAuthor", bookAuthor);
+
+		List<Book> foundBooks = typedQuery.getResultList();
+		em.close();
+		return foundBooks;
+	
+	}	
+
 
 }
 
