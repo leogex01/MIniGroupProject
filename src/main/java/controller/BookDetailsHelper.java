@@ -8,6 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import model.BookDetails;
 import model.User;
 
 /**
@@ -118,6 +119,15 @@ public class BookDetailsHelper {
 	public void deleteBookTitle(Book toDelete) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	/**
+	 * @param tempId
+	 * @return
+	 */
+	public BookDetails searchForListDetailsById(Integer tempId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

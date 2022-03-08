@@ -11,7 +11,7 @@
 
 	<form method="post" action="navigationServlet">
 		<table>
-			<c:forEach items="${requestScope.allBook}" var="currentbook">
+			<c:forEach items="${requestScope.allBooks}" var="currentbook">
 				<tr>
 					<td><input type="radio" name="id" value="${currentbook.id}">
 					</td>
