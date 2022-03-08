@@ -37,7 +37,7 @@ public class ViewAllBooksServlet extends HttpServlet {
 		 //System.out.println(b.Details()); }
 		
 		
-		String path = "/Users-list.jsp";
+		String path = "/users-list.jsp";
 		
 		if(dao.showAllBooks().isEmpty()) {
 			path = "/index.html";
