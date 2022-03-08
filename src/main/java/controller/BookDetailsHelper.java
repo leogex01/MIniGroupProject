@@ -8,9 +8,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+
 import model.Book;
-import model.BookDetails;
+
 import model.ListDetails;
+
 import model.User;
 
 /**
@@ -146,7 +148,10 @@ public class BookDetailsHelper {
 	 * @return
 	 */
 	public BookDetails searchForListDetailsById(Integer tempId) {
-		// TODO Auto-generated method stub
+
+		return null;
+	}
+
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		TypedQuery<Book> typedQuery = em.createQuery("select b from Book b where b.BookAuthor = :selectedBookAuthor",
@@ -159,6 +164,7 @@ public class BookDetailsHelper {
 		return foundBooks;
 	
 	}	
+
 
 }
 
